@@ -83,8 +83,8 @@ class Complex {
   friend Complex Sqrt(const Complex& num, int ord = 1);
 
   // Read/Write operators
-  friend istream& operator>>(istream& in, Complex& num);
-  friend ostream& operator<<(ostream& out, const Complex& num);
+  friend std::istream& operator>>(std::istream& in, Complex& num);
+  friend std::ostream& operator<<(std::ostream& out, const Complex& num);
 
  private:
   void SetFromString(std::string str);
