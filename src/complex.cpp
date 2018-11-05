@@ -236,7 +236,10 @@ std::string Complex::ToString() const {
   return stream.str();
 }
 
-
+// Conversion operators
+Complex::operator std::string() const {
+  return ToString();
+}
 
 
 

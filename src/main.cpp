@@ -20,7 +20,7 @@ int main() {
 
   std::cout << (z == y) << " " << (y != y) << " " << (5 != z) << std::endl;
 
-  std::cout << complex::Complex(-2, 3).ToString() << " "
+  std::cout << static_cast<std::string>(complex::Complex(-2, 3)) << " "
             << complex::Complex(0, -3).ToString() << std::endl;
 
   return 0;
