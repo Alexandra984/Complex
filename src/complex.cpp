@@ -1,4 +1,5 @@
 #include "complex.hpp"
+#include <sstream>
 
 namespace complex {
 
@@ -219,6 +220,21 @@ Complex Complex::Conjugate() const {
   return Complex(_real, -_imaginary);
 }
 
+// ToString method
+std::string Complex::ToString() const {
+  std::ostringstream stream;
+  if (_real == 0 && _imaginary == 0)
+    stream << "0";
+  else if (_imaginary == 0)
+    stream << _real;
+  else if (_real == 0)
+    stream << (_imaginary < 0 ? "-" : "") << "i*"
+           << (_imaginary < 0 ? -_imaginary : _imaginary);
+  else
+    stream << _real << (_imaginary < 0 ? "-" : "+") << "i*"
+           << (_imaginary < 0 ? -_imaginary : _imaginary);
+  return stream.str();
+}
 
 
 
