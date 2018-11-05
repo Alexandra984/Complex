@@ -27,5 +27,7 @@ int main() {
 
   std::cout << Sqrt(y).ToString() << " " << Sqrt(y, 2).ToString() << std::endl;
 
+  std::cout << x << " " << y << std::endl;
+
   return 0;
 }

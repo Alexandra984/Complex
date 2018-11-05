@@ -255,40 +255,10 @@ Complex Sqrt(const Complex& num, int ord) {
   return sqrt(Modulus(num)) * Complex(cos(theta), sin(theta));
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Read/Write operators
+std::ostream& operator<<(std::ostream& out, const Complex& num) {
+  out << num.ToString();
+  return out;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
