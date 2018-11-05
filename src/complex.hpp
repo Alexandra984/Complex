@@ -8,20 +8,20 @@ namespace complex {
 
 class Complex {
  public:
-  // constructors
+  // Constructors
   Complex(double real = 0, double imaginary = 0);
   Complex(std::string str);
   Complex(const Complex& rhs);
 
-  // getters
+  // Getters
   double real() const;
   double imaginary() const;
 
-  // setters
+  // Setters
   void set_real(double real);
   void set_imaginary(double imaginary);
 
-  // assignment operators
+  // Assignment operators
   Complex& operator=(const Complex& rhs);
   Complex& operator=(double rhs);
 
@@ -75,7 +75,7 @@ class Complex {
   // Returns conjugate of number
   Complex Conjugate() const;
 
-  // conversion operators
+  // Conversion operators
   operator std::string() const;
 
   // Friend Methods
