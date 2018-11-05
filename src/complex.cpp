@@ -105,6 +105,90 @@ Complex operator-(const Complex& rhs) {
   return Complex(-rhs._real, -rhs._imaginary);
 }
 
+// Binary operators
+Complex Complex::operator+(const Complex& rhs) const {
+  Complex res(*this);
+  res += rhs;
+  return res;
+}
+
+Complex Complex::operator+(double rhs) const {
+  Complex res(*this);
+  res += rhs;
+  return res;
+}
+
+Complex operator+(double lhs, const Complex& rhs) {
+  Complex res(rhs);
+  res += lhs;
+  return res;
+}
+
+Complex Complex::operator-(const Complex& rhs) const {
+  Complex res(*this);
+  res -= rhs;
+  return res;
+}
+
+Complex Complex::operator-(double rhs) const {
+  Complex res(*this);
+  res -= rhs;
+  return res;
+}
+
+Complex operator-(double lhs, const Complex& rhs) {
+  Complex res(lhs);
+  res -= rhs;
+  return res;
+}
+
+Complex Complex::operator*(const Complex& rhs) const {
+  Complex res(*this);
+  res *= rhs;
+  return res;
+}
+
+Complex Complex::operator*(double rhs) const {
+  Complex res(*this);
+  res *= rhs;
+  return res;
+}
+
+Complex operator*(double lhs, const Complex& rhs) {
+  Complex res(rhs);
+  res *= lhs;
+  return res;
+}
+
+Complex Complex::operator/(const Complex& rhs) const {
+  Complex res(*this);
+  res /= rhs;
+  return res;
+}
+
+Complex Complex::operator/(double rhs) const {
+  Complex res(*this);
+  res /= rhs;
+  return res;
+}
+
+Complex operator/(double lhs, const Complex& rhs) {
+  Complex res(lhs);
+  res /= rhs;
+  return res;
+}
+
+Complex operator^(const Complex& lhs, int rhs) {
+  int abs_pow = (rhs > 0 ? rhs : -rhs);
+  Complex res(1);
+  for (int i = 1; i <= abs_pow; ++i)
+    res *= lhs;
+  if (rhs < 0)
+    res = 1 / res;
+  return res;
+}
+
+
 // Returns conjugate of number
 Complex Complex::Conjugate() const {
   return Complex(_real, -_imaginary);

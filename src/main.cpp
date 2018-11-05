@@ -15,5 +15,8 @@ int main() {
   z = -y;
   std::cout << z.real() << " " << z.imaginary() << std::endl;
 
+  z = (z^3) / z;
+  std::cout << z.real() << " " << z.imaginary() << std::endl;
+
   return 0;
 }
