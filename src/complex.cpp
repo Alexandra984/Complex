@@ -188,11 +188,51 @@ Complex operator^(const Complex& lhs, int rhs) {
   return res;
 }
 
+// Relational operators
+bool Complex::operator==(const Complex& rhs) const {
+  return _real == rhs._real && _imaginary == rhs._imaginary;
+}
+
+bool Complex::operator==(double rhs) const {
+  return _real == rhs && _imaginary == 0;
+}
+
+bool operator==(double lhs, const Complex& rhs) {
+  return lhs == rhs._real && rhs._imaginary == 0;
+}
+
+bool Complex::operator!=(const Complex& rhs) const {
+  return _real != rhs._real || _imaginary != rhs._imaginary;
+}
+
+bool Complex::operator!=(double rhs) const {
+  return _real != rhs || _imaginary != 0;
+}
+
+bool operator!=(double lhs, const Complex& rhs) {
+  return lhs != rhs._real || rhs._imaginary != 0;
+}
+
 
 // Returns conjugate of number
 Complex Complex::Conjugate() const {
   return Complex(_real, -_imaginary);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
