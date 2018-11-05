@@ -96,10 +96,30 @@ Complex& Complex::operator/=(double rhs) {
   return *this;
 }
 
+// Unary operators
+Complex operator+(const Complex& rhs) {
+  return rhs;
+}
+
+Complex operator-(const Complex& rhs) {
+  return Complex(-rhs._real, -rhs._imaginary);
+}
+
 // Returns conjugate of number
 Complex Complex::Conjugate() const {
   return Complex(_real, -_imaginary);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

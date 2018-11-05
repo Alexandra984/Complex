@@ -12,5 +12,8 @@ int main() {
   z /= y += x;
   std::cout << z.real() << " " << z.imaginary() << std::endl;
 
+  z = -y;
+  std::cout << z.real() << " " << z.imaginary() << std::endl;
+
   return 0;
 }
