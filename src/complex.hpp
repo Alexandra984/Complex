@@ -79,7 +79,7 @@ class Complex {
   operator std::string() const;
 
   // Friend Methods
-  friend double Abs(const Complex& num);
+  friend double Modulus(const Complex& num);
   friend Complex Sqrt(const Complex& num, int ord = 1);
 
   // Read/Write operators

@@ -23,5 +23,7 @@ int main() {
   std::cout << static_cast<std::string>(complex::Complex(-2, 3)) << " "
             << complex::Complex(0, -3).ToString() << std::endl;
 
+  std::cout << Modulus(y) << std::endl;
+
   return 0;
 }

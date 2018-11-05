@@ -1,5 +1,6 @@
 #include "complex.hpp"
 #include <sstream>
+#include <cmath>
 
 namespace complex {
 
@@ -239,6 +240,11 @@ std::string Complex::ToString() const {
 // Conversion operators
 Complex::operator std::string() const {
   return ToString();
+}
+
+// Friend methods
+double Modulus(const Complex& num) {
+  return sqrt(num._real*num._real + num._imaginary*num._imaginary);
 }
 
 
