@@ -247,7 +247,13 @@ double Modulus(const Complex& num) {
   return sqrt(num._real*num._real + num._imaginary*num._imaginary);
 }
 
-
+Complex Sqrt(const Complex& num, int ord) {
+  if (ord != 1 && ord != 2)
+    throw "Invalid index of root";
+  double theta = atan2(num._imaginary, num._real)/2
+               + (ord == 1 ? 0 : Complex::kPI);
+  return sqrt(Modulus(num)) * Complex(cos(theta), sin(theta));
+}
 
 
 

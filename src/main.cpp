@@ -25,5 +25,7 @@ int main() {
 
   std::cout << Modulus(y) << std::endl;
 
+  std::cout << Sqrt(y).ToString() << " " << Sqrt(y, 2).ToString() << std::endl;
+
   return 0;
 }
