@@ -87,7 +87,7 @@ class Complex {
   friend std::ostream& operator<<(std::ostream& out, const Complex& num);
 
  private:
-  static const double kPI = 3.141592653;
+  static const double kPI;
 
   void SetFromString(std::string str);
 

@@ -261,4 +261,7 @@ std::ostream& operator<<(std::ostream& out, const Complex& num) {
   return out;
 }
 
+// Class constant for PI
+const double Complex::kPI = 3.141592653;
+
 }
