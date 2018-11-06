@@ -10,6 +10,10 @@ Complex::Complex(double real, double imaginary) :
     _imaginary(imaginary) {
 }
 
+Complex::Complex(std::string str) {
+  SetFromString(str);
+}
+
 Complex::Complex(const Complex& rhs) :
     _real(rhs._real),
     _imaginary(rhs._imaginary) {
@@ -261,6 +265,13 @@ Complex Sqrt(const Complex& num, int ord) {
 }
 
 // Read/Write operators
+std::istream& operator>>(std::istream& in, Complex& num) {
+  std::string str;
+  in >> str;
+  num.SetFromString(str);
+  return in;
+}
+
 std::ostream& operator<<(std::ostream& out, const Complex& num) {
   out << num.ToString();
   return out;
@@ -268,5 +279,72 @@ std::ostream& operator<<(std::ostream& out, const Complex& num) {
 
 // Class constant for PI
 const double Complex::kPI = 3.141592653;
+
+// Method to set the complex number from a string format
+void Complex::SetFromString(std::string str) {
+  static const char error[] = "Invalid format";
+  if (str == "")
+    throw error;
+
+  std::size_t find_pos = str.find("i*");
+  try {
+
+    if (find_pos == std::string::npos) {
+      //just real part
+      std::size_t sz;
+      double real = std::stod(str, &sz);
+      if (sz < str.size())
+        throw error;
+      else {
+        _real = real;
+        _imaginary = 0;
+      }
+    } else if (find_pos == 0 || find_pos == 1) {
+      //just imaginary part
+      if (find_pos == 1 && str[0] != '-' && str[0] != '+')
+        throw error;
+      if (!isdigit(str[find_pos + 2]))
+        throw error;
+
+      str.erase(find_pos, 2);
+      std::size_t sz;
+      double imaginary = std::stod(str, &sz);
+      if (sz < str.size())
+        throw error;
+      else {
+        _imaginary = imaginary;
+        _real = 0;
+      }
+
+    } else {
+      //both
+      int sign_imaginary;
+      if (str[find_pos - 1] == '+')
+        sign_imaginary = 1;
+      else if (str[find_pos - 1] == '-')
+        sign_imaginary = -1;
+      else
+        throw error;
+
+      std::size_t sz;
+      double real = std::stod(str.substr(0, find_pos - 1), &sz);
+      if (sz < find_pos - 1)
+        throw error;
+
+      if (find_pos + 2 >= str.size() || !isdigit(str[find_pos + 2]))
+        throw error;
+      double imaginary = std::stod(str.substr(find_pos + 2), &sz);
+      if (sz < str.size() - find_pos - 2)
+        throw error;
+
+      _real = real;
+      _imaginary = sign_imaginary * imaginary;
+    }
+
+  }
+  catch (...) {
+    throw error;
+  }
+}
 
 }

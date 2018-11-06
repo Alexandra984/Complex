@@ -1,4 +1,4 @@
-CPPFLAGS=-g -Wall -Wextra
+CPPFLAGS=-g -Wall -Wextra -std=c++11
 
 all: build/ build/demo
 

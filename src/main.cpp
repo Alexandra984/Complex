@@ -29,5 +29,18 @@ int main() {
 
   std::cout << x << " " << y << std::endl;
 
+  complex::Complex t("-5.034+i*4.33");
+  std::cout << t << std::endl;
+
+  try {
+    std::cin >> x;
+  }
+  catch (const char* msg) {
+    std::cout << msg << std::endl;
+    return 0;
+  }
+
+  std::cout << x << std::endl;
+
   return 0;
 }
