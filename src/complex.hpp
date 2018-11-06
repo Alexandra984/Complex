@@ -13,6 +13,9 @@ class Complex {
   Complex(std::string str);
   Complex(const Complex& rhs);
 
+  // Destructor
+  ~Complex();
+
   // Getters
   double real() const;
   double imaginary() const;

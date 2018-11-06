@@ -15,6 +15,11 @@ Complex::Complex(const Complex& rhs) :
     _imaginary(rhs._imaginary) {
 }
 
+// Destructor
+Complex::~Complex() {
+  // do nothing
+}
+
 // Getters
 double Complex::real() const {
   return _real;
